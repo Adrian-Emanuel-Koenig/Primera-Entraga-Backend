@@ -54,9 +54,8 @@ class Contenedor {
   async deleteById(id) {
     try {
       const productos = await this.getAll();
-      const newProducts = productos.filter((e) => e.id !== id);
+      const newProducts = productos.filter((e) => e.id != id);
       await fs.promises.writeFile(this.file, JSON.stringify(newProducts, null, 2));
-      return `Producto id: ${id} fue borrado`;
     } catch (error) {
       return 'El producto no pudo ser borrado';
     }
@@ -69,6 +68,8 @@ class Contenedor {
       console.log('Error al vaciar el archivo');
     }
   }
+
+  
 }
 
 module.exports = Contenedor;
