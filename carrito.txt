@@ -1,0 +1,26 @@
+[
+  {
+    "productos": {
+      "id_prod": 1,
+      "nombre": "El nombre del viento",
+      "descripcion": "Primera entrega de la saga Crónica del Asesino de Reyes",
+      "precio": 7000,
+      "stock": 14,
+      "thumbnail": "https://images.cdn3.buscalibre.com/fit-in/360x360/a7/90/a790dff70defe5c61b66fd73716b6e30.jpg"
+    },
+    "timestamp": "24/11/2022 21:03:11",
+    "id": 1
+  },
+  {
+    "productos": {
+      "id_prod": 2,
+      "nombre": "El temor de un hombre Sabio",
+      "descripcion": "Segunda entrega de la saga Crónica del Asesino de Reyes",
+      "precio": 8500,
+      "stock": 12,
+      "thumbnail": "https://www.popularlibros.com/imagenes.webp_grandes/9788401/978840133963.webp"
+    },
+    "timestamp": "24/11/2022 21:04:04",
+    "id": 2
+  }
+]
