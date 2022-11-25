@@ -6,53 +6,75 @@ const allCarts = async (req, res) => {
     const products = await carrito.getAll();
     res.json(products);
   } catch {
-    res.json("error");
+    res.json(error);
   }
 };
 
 const postCart = async (req, res) => {
-  let timestamp = new Date().toLocaleString();
-  const { body } = req;
-  carrito.save({ productos: body, timestamp });
-  res.json(await carrito.getAll());
+    try {
+        let timestamp = new Date().toLocaleString();
+        const { body } = req;
+        carrito.save({ productos: body, timestamp });
+        res.json(await carrito.getAll());
+    } catch (error) {
+        res.json(error)
+    }
+
 };
 
 const getCart = async (req, res) => {
-  const { id } = req.params;
-  const producto = await carrito.getById(id);
-  const item = producto.productos;
-  res.json(item);
+    try {
+        const { id } = req.params;
+        const producto = await carrito.getById(id);
+        const item = producto.productos;
+        res.json(item);
+    } catch (error) {
+        res.json(error)
+    }
+
 };
 
 const deleteCart = async (req, res) => {
-  const { id } = req.params;
-  deleteCart = await carrito.deleteById(id);
-  res.json(deleteCart);
+    try {
+        const { id } = req.params;
+        deleteCart = await carrito.deleteById(id);
+        res.json(deleteCart);
+    } catch (error) {
+        res.json(error)
+    }
+
 };
 
 const postProductToCart = async (req, res) => {
-  const { id } = req.params;
-  const { body } = req;
-  const producto = await carrito.getById(id);
-  const item = producto.productos;
-  item.push(body)
-  res.json(item);
-};
-const deleteCartProduct = async (req, res) => {
-  const { id, id_prod } = req.params;
-  const orden = await carrito.getById(id);
-  const productosDelete = orden.productos.filter((e) => e.id_prod != id_prod);
-  // const deleteProduct = await orden.deleteById(id_prod)
-  // res.json(deleteProduct);
-  console.log(productosDelete);
-  res.json(productosDelete);
+    try {
+        const { id } = req.params;
+        const { body } = req;
+        const producto = await carrito.getById(id);
+        const item = producto.productos;
+        item.push(body);
+        res.json(item);
+    } catch (error) {
+        res.json(error);
+    }
+
 };
 
-// routerCarrito.delete("/:id/productos/:id_prod", async (req, res) => {
-//   const products = await carrito.getAll();
-//   const { id, id_prod } = req.params;
-//   const orden = carrito.getById(id);
-//   const productosDelete = products.filter((e) => e.id_prod != id_prod);
-// res.json(productosDelete);
-// });
-module.exports = { allCarts, postCart, getCart, deleteCart, deleteCartProduct,postProductToCart };
+const deleteCartProduct = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { id_prod } = req.params;
+        await carrito.deleteItem((id), (id_prod));
+        res.json("Producto eliminado con éxito.")
+    } catch(error) {
+        res.json(error);
+    }
+};
+
+module.exports = {
+  allCarts,
+  postCart,
+  getCart,
+  deleteCart,
+  deleteCartProduct,
+  postProductToCart,
+};

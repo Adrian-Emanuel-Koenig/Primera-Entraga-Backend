@@ -29,9 +29,14 @@ app.listen(port, () => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.json("Primera entrega del proyecto final. Aplicación eCommerce Backend");
+});
+
 /* -------------------------------------------------------------------------- */
 /*                                   Router                                   */
 /* -------------------------------------------------------------------------- */
+
 app.use("/api/productos", routerProductos);
 app.use("/api/carrito", routerCarrito);
 
@@ -49,10 +54,6 @@ const admin = (req, res, next) => {
       });
 };
 
-app.get("/", (req, res) => {
-  res.json("Primera entrega del proyecto final. Aplicación eCommerce Backend");
-});
-
 /* -------------------------------------------------------------------------- */
 /*                                  Productos                                 */
 /* -------------------------------------------------------------------------- */
@@ -67,11 +68,11 @@ routerProductos.delete("/:id", admin, deleteProduct);
 /* -------------------------------------------------------------------------- */
 /*                                   Carrito                                  */
 /* -------------------------------------------------------------------------- */
+
 routerCarrito.get("/", allCarts);
 
 routerCarrito.post("/", postCart);
 routerCarrito.delete("/:id", deleteCart);
 routerCarrito.get("/:id/productos", getCart);
 routerCarrito.post("/:id/productos", postProductToCart);
-
 routerCarrito.delete("/:id/productos/:id_prod", deleteCartProduct);

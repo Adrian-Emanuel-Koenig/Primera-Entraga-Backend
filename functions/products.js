@@ -2,8 +2,12 @@ const Contenedor = require("../container");
 const productos = new Contenedor("./storage/productos.txt");
 
 const allProducts = async (req, res) => {
-  const products = await productos.getAll();
-  res.json(products);
+  try {
+    const products = await productos.getAll();
+    res.json(products);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const getProduct = async (req, res) => {
@@ -16,29 +20,41 @@ const getProduct = async (req, res) => {
 };
 
 const postProduct = async (req, res) => {
-  let timestamp = new Date().toLocaleString();
-  const { body } = req;
-  await productos.save({ body, timestamp });
-  res.json(body);
+  try {
+    let timestamp = new Date().toLocaleString();
+    const { body } = req;
+    await productos.save({ body, timestamp });
+    res.json(body);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const putProduct = async (req, res) => {
-  const products = await productos.getAll();
-  const { id } = req.params;
-  const { body } = req;
-  const indice = products.findIndex((e) => e.id == id);
-  if (indice >= 0) {
-    products[indice] = body;
-    res.json(body);
-  } else {
-    res.json("Error: Producto no encontrado.");
+  try {
+    const { id } = req.params;
+    const { body } = req;
+    const editarProducto = await productos.editProduct(id, body);
+    res.json(editarProducto);
+  } catch (error) {
+    res.json(error);
   }
 };
 
 const deleteProduct = async (req, res) => {
-  const { id } = req.params;
-  await productos.deleteById(id)
-  res.json("Producto eliminado con éxito.");
+  try {
+    const { id } = req.params;
+    await productos.deleteById(id);
+    res.json("Producto eliminado con éxito.");
+  } catch (error) {
+    res.json(error);
+  }
 };
 
-module.exports = { allProducts, getProduct, postProduct, putProduct, deleteProduct };
+module.exports = {
+  allProducts,
+  getProduct,
+  postProduct,
+  putProduct,
+  deleteProduct,
+};

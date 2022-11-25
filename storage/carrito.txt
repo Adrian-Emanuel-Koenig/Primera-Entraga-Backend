@@ -16,14 +16,6 @@
         "precio": 8500,
         "stock": 12,
         "thumbnail": "https://www.popularlibros.com/imagenes.webp_grandes/9788401/978840133963.webp"
-      },
-      {
-        "id": 3,
-        "nombre": "Las puertas de piedra",
-        "descripcion": "Tercera entrega de la saga Crónica del Asesino de Reyes",
-        "precio": 10000,
-        "stock": 11,
-        "thumbnail": "http://www.cronicadelasesinodereyes.com/wp-content/uploads/2017/02/las-puertas-de-piedra.jpg"
       }
     ],
     "timestamp": "24/11/2022 21:03:11",
