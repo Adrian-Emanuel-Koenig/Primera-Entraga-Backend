@@ -5,7 +5,8 @@
     "descripcion": "Primera entrega de la saga Crónica del Asesino de Reyes",
     "precio": 7000,
     "stock": 14,
-    "thumbnail": "https://images.cdn3.buscalibre.com/fit-in/360x360/a7/90/a790dff70defe5c61b66fd73716b6e30.jpg"
+    "thumbnail": "https://images.cdn3.buscalibre.com/fit-in/360x360/a7/90/a790dff70defe5c61b66fd73716b6e30.jpg",
+    "edit": "editando producto"
   },
   {
     "id": 2,
@@ -34,5 +35,17 @@
     },
     "timestamp": "24/11/2022 21:48:01",
     "id": 4
+  },
+  {
+    "body": {
+      "id": 3,
+      "nombre": "Las puertas de piedra",
+      "descripcion": "Tercera entrega de la saga Crónica del Asesino de Reyes",
+      "precio": 10000,
+      "stock": 11,
+      "thumbnail": "http://www.cronicadelasesinodereyes.com/wp-content/uploads/2017/02/las-puertas-de-piedra.jpg"
+    },
+    "timestamp": "25/11/2022 22:06:54",
+    "id": 5
   }
 ]

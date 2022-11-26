@@ -68,6 +68,7 @@ class Contenedor {
         this.file,
         JSON.stringify(newProducts, null, 2)
       );
+      return "Producto Borrado con exito"
     } catch (error) {
       return "El producto no pudo ser borrado";
     }

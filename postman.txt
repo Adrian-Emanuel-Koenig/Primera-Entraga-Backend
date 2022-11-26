@@ -7,7 +7,7 @@ Router base Productos
 
 GET("/") - http://localhost:8080/api/productos - Todos los productos.
 GET("/:id") - http://localhost:8080/api/productos/:id - Producto por ID.
-POST("/") - http://localhost:8080/api/productos - Agregar porductos.
+POST("/") - http://localhost:8080/api/productos - Agregar productos.
 PUT("/:id") - http://localhost:8080/api/productos/:id - Editar un objeto.
 DELETE("/:id") - http://localhost:8080/api/productos/:id - Borrar producto.
 
@@ -20,3 +20,6 @@ DELETE("/:id") - http://localhost:8080/api/carrito/:id - Borrar carro.
 GET("/:id/productos") - http://localhost:8080/api/carrito/:id/productos - Productos del carro.
 POST("/:id/productos") - http://localhost:8080/api/carrito/:id/productos - Añadir producto al carro.
 DELETE("/:id/productos/:id_prod") http://localhost:8080/api/carrito/:id/productos/:id_prod - Borrar producto del carro.
+
+KEY Postman Via API
+https://api.postman.com/collections/24191612-d15287e6-40b9-42a0-a8dd-1c6bdaf799d8?access_key=PMAT-01GJRSJHJCF2DC5YHBEBH9C48Y
