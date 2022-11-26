@@ -11,7 +11,7 @@ GET("/") - http://localhost:8080/api/productos - Todos los productos.
 
 GET("/:id") - http://localhost:8080/api/productos/:id - Producto por ID.
 
-POST("/") - http://localhost:8080/api/productos - Agregar porductos.
+POST("/") - http://localhost:8080/api/productos - Agregar productos.
 
 PUT("/:id") - http://localhost:8080/api/productos/:id - Editar un objeto.
 
