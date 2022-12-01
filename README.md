@@ -1,9 +1,6 @@
 # Primera-Entraga-Backend
 
 Postman
-KEY Via API
-
-https://api.postman.com/collections/24191612-d15287e6-40b9-42a0-a8dd-1c6bdaf799d8?access_key=PMAT-01GJRSJHJCF2DC5YHBEBH9C48Y
 
 RUTAS
 
