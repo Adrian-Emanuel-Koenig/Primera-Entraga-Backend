@@ -54,7 +54,11 @@ class Contenedor {
     try {
       const productos = await this.getAll();
       const producto = productos.find((e) => e.id == id);
-      return producto;
+      if (!producto) {
+        return ({Mensaje: "El producto n° "+id+ " no existe."})
+      } else {
+        return ({Mensaje: "Producto n° "+ id+ " encontrado.", Producto: producto});
+      }
     } catch (error) {
       return "El producto no se encuentra";
     }
@@ -63,14 +67,19 @@ class Contenedor {
   async deleteById(id) {
     try {
       const productos = await this.getAll();
-      const newProducts = productos.filter((e) => e.id != id);
-      await fs.promises.writeFile(
-        this.file,
-        JSON.stringify(newProducts, null, 2)
-      );
-      return "Producto Borrado con exito"
+      const idTrue = productos.find((e) => e.id == id);
+      if (idTrue) {
+        const newProducts = productos.filter((e) => e.id != id);
+        await fs.promises.writeFile(
+          this.file,
+          JSON.stringify(newProducts, null, 2)
+        );
+        return "Borrado con exito.";
+      } else {
+        return "No existe.";
+      }
     } catch (error) {
-      return "El producto no pudo ser borrado";
+      return error;
     }
   }
 
@@ -81,12 +90,27 @@ class Contenedor {
       return "Error al vaciar el archivo";
     }
   }
+  
+  async editarProductos(id, body) {
+    try {
+      const productos = await this.getAll();
+      const itemId = productos.findIndex((e) => e.id == id);
+      productos[itemId] = {...productos[itemId], ...body};
+      await fs.promises.writeFile(
+        this.file,
+        JSON.stringify(productos, null, 2)
+      );
+      return productos[itemId];
+    } catch (error) {
+      return "Error al modificar producto";
+    }
+  }
 
   async editProduct(id, body) {
     try {
       const productos = await this.getAll();
       const itemId = productos.findIndex((e) => e.id == id);
-      productos[itemId] = { ...productos[itemId], ...body };
+      productos[itemId].productos = [...productos[itemId].productos, body];
       await fs.promises.writeFile(
         this.file,
         JSON.stringify(productos, null, 2)
@@ -99,10 +123,22 @@ class Contenedor {
 
   async deleteItem(id, id_prod) {
     try {
-      const cart = await this.getById(id);
-      cart.productos = cart.productos.filter((e) => e.id != id_prod);
-      await this.editProduct(id, cart);
-      return cart;
+      let carro = await this.getById(id);
+      const products = await this.getAll();
+      const itemId = products.findIndex((e) => e.id == id);
+      const idTrue = carro.productos.find((e) => e.id == id_prod);
+
+      if (idTrue) {
+        const productos = carro.productos.filter((e) => e.id != id_prod);
+        products[itemId] = { ...products[itemId], productos };
+        await fs.promises.writeFile(
+          this.file,
+          JSON.stringify(products, null, 2)
+        );
+        return productos;
+      } else {
+        return "Producto no encontrado en el carro.";
+      }
     } catch (error) {
       return "Error al borrar producto.";
     }

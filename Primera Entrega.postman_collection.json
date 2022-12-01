@@ -65,7 +65,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 3,\r\n    \"nombre\": \"Las puertas de piedra\",\r\n    \"descripcion\": \"Tercera entrega de la saga Crónica del Asesino de Reyes\",\r\n    \"precio\": 10000,\r\n    \"stock\": 11,\r\n    \"thumbnail\": \"http://www.cronicadelasesinodereyes.com/wp-content/uploads/2017/02/las-puertas-de-piedra.jpg\"\r\n  }",
+					"raw": "{\r\n    \"nombre\": \"Las puertas de piedra\",\r\n    \"descripción\": \"Tercera entrega de la saga Crónica del Asesino de Reyes\",\r\n    \"código\": 20000000,\r\n    \"thumbnail\": \"http://www.cronicadelasesinodereyes.com/wp-content/uploads/2017/02/las-puertas-de-piedra.jpg\",\r\n    \"precio\": 10500,\r\n    \"stock\": 11\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -94,7 +94,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"edit\": \"editando producto\"\r\n}",
+					"raw": "{\r\n    \"nombre\": \"El nombre del viento\",\r\n    \"descripción\": \"Edición Best Seller. Primera entrega de la saga Crónica del Asesino de Reyes\",\r\n    \"código\": 11111,\r\n    \"thumbnail\": \"https://images.cdn3.buscalibre.com/fit-in/360x360/a7/90/a790dff70defe5c61b66fd73716b6e30.jpg\",\r\n    \"precio\": 9999,\r\n    \"stock\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -163,15 +163,6 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n                \"id\": 1,\r\n                \"nombre\": \"El nombre del viento\",\r\n                \"descripcion\": \"Primera entrega de la saga Crónica del Asesino de Reyes\",\r\n                \"precio\": 7000,\r\n                \"stock\": 14,\r\n                \"thumbnail\": \"https://images.cdn3.buscalibre.com/fit-in/360x360/a7/90/a790dff70defe5c61b66fd73716b6e30.jpg\"\r\n            }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://localhost:8080/api/carrito",
 					"protocol": "http",
@@ -235,17 +226,8 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n        \"id\": 3,\r\n        \"nombre\": \"Las puertas de piedra\",\r\n        \"descripcion\": \"Tercera entrega de la saga Crónica del Asesino de Reyes\",\r\n        \"precio\": 10000,\r\n        \"stock\": 11,\r\n        \"thumbnail\": \"http://www.cronicadelasesinodereyes.com/wp-content/uploads/2017/02/las-puertas-de-piedra.jpg\"\r\n      }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8080/api/carrito/1/productos/",
+					"raw": "http://localhost:8080/api/carrito/1/productos/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -256,7 +238,7 @@
 						"carrito",
 						"1",
 						"productos",
-						""
+						"3"
 					]
 				}
 			},
@@ -268,7 +250,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/carrito/1/productos/2",
+					"raw": "http://localhost:8080/api/carrito/1/productos/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -279,7 +261,7 @@
 						"carrito",
 						"1",
 						"productos",
-						"2"
+						"1"
 					]
 				}
 			},

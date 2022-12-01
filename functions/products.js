@@ -21,10 +21,11 @@ const getProduct = async (req, res) => {
 
 const postProduct = async (req, res) => {
   try {
-    let timestamp = new Date().toLocaleString();
-    const { body } = req;
-    await productos.save({ body, timestamp });
-    res.json(body);
+    const timestamp = new Date().toLocaleString();
+    const {id, nombre, descripción, código, thumbnail, precio, stock} = req.body;
+    const data = {id, nombre, descripción, código, thumbnail, precio, stock, timestamp};
+    await productos.save({ ...data });
+    res.json({Mensaje:"Producto añadido con éxito.", Producto: data})
   } catch (error) {
     res.json(error);
   }
@@ -34,8 +35,8 @@ const putProduct = async (req, res) => {
   try {
     const { id } = req.params;
     const { body } = req;
-    const editarProducto = await productos.editProduct(id, body);
-    res.json(editarProducto);
+    const editarProducto = await productos.editarProductos(id, body);
+    res.json({Mensaje: "Producto editado con éxito.", Producto: editarProducto});
   } catch (error) {
     res.json(error);
   }
@@ -44,8 +45,8 @@ const putProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    await productos.deleteById(id);
-    res.json("Producto eliminado con éxito.");
+    const prodDel= await productos.deleteById(id);
+    res.json({Producto: "n°"+ id +" "+prodDel});
   } catch (error) {
     res.json(error);
   }

@@ -1,5 +1,6 @@
 const Contenedor = require("../container");
 const carrito = new Contenedor("./storage/carrito.txt");
+const productos = new Contenedor("./storage/productos.txt");
 
 const allCarts = async (req, res) => {
   try {
@@ -13,9 +14,8 @@ const allCarts = async (req, res) => {
 const postCart = async (req, res) => {
   try {
     let timestamp = new Date().toLocaleString();
-    const { body } = req;
-    carrito.save({ productos: body, timestamp });
-    res.json(await carrito.getAll());
+    carrito.save({ productos: [], timestamp });
+    res.json({ Mensaje: "Carro creado con éxito." });
   } catch (error) {
     res.json(error);
   }
@@ -25,8 +25,12 @@ const getCart = async (req, res) => {
   try {
     const { id } = req.params;
     const producto = await carrito.getById(id);
-    const item = producto.productos;
-    res.json(item);
+    if (!producto) {
+      res.json({ Carro: "n°" + id + " no existe." });
+    } else {
+      const item = producto.productos;
+      res.json({ Carro: "n°" + id, Productos: item });
+    }
   } catch (error) {
     res.json(error);
   }
@@ -34,10 +38,9 @@ const getCart = async (req, res) => {
 
 const deleteCart = async (req, res) => {
   try {
-    const carros = await carrito.getAll()
     const { id } = req.params;
-    deleteCart = await carrito.deleteById(id);
-    res.json(carros);
+    const deleteCart = await carrito.deleteById(id);
+    res.json({ Carro: "n°" + id + " " + deleteCart });
   } catch (error) {
     res.json(error);
   }
@@ -45,12 +48,15 @@ const deleteCart = async (req, res) => {
 
 const postProductToCart = async (req, res) => {
   try {
-    const { id } = req.params;
-    const { body } = req;
-    const producto = await carrito.getById(id);
-    const item = producto.productos;
-    item.push(body);
-    res.json(item);
+    const { id, id_prod } = req.params;
+    const producto = await productos.getById(id_prod);
+
+    if (!producto) {
+      res.json("Este producto no existe.");
+    } else {
+      const postCarro = await carrito.editProduct(...id, producto);
+      res.json({ Mensaje: "Cargado con éxito.", postCarro });
+    }
   } catch (error) {
     res.json(error);
   }
@@ -58,10 +64,9 @@ const postProductToCart = async (req, res) => {
 
 const deleteCartProduct = async (req, res) => {
   try {
-    const { id } = req.params;
-    const { id_prod } = req.params;
-    await carrito.deleteItem(id, id_prod);
-    res.json("Producto eliminado con éxito.");
+    const { id, id_prod } = req.params;
+    const deleteItem = await carrito.deleteItem(id, id_prod);
+    res.json({ Carro: deleteItem });
   } catch (error) {
     res.json(error);
   }
