@@ -39,7 +39,13 @@ app.get("/", (req, res) => {
 
 app.use("/api/productos", routerProductos);
 app.use("/api/carrito", routerCarrito);
-
+app.use((req, res) => {
+  res.json({
+    Error: true,
+    Code: 404,
+    message: "Ruta no encontrada.",
+  });
+});
 /* -------------------------------------------------------------------------- */
 /*                                  Permisos                                  */
 /* -------------------------------------------------------------------------- */
@@ -74,5 +80,5 @@ routerCarrito.get("/", allCarts);
 routerCarrito.post("/", postCart);
 routerCarrito.delete("/:id", deleteCart);
 routerCarrito.get("/:id/productos", getCart);
-routerCarrito.post("/:id/productos", postProductToCart);
+routerCarrito.post("/:id/productos/:id_prod", postProductToCart);
 routerCarrito.delete("/:id/productos/:id_prod", deleteCartProduct);

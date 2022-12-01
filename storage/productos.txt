@@ -2,50 +2,31 @@
   {
     "id": 1,
     "nombre": "El nombre del viento",
-    "descripcion": "Primera entrega de la saga Crónica del Asesino de Reyes",
+    "descripción": "Edición Best Seller. Primera entrega de la saga Crónica del Asesino de Reyes",
+    "código": 11111,
+    "thumbnail": "https://images.cdn3.buscalibre.com/fit-in/360x360/a7/90/a790dff70defe5c61b66fd73716b6e30.jpg",
     "precio": 7000,
     "stock": 14,
-    "thumbnail": "https://images.cdn3.buscalibre.com/fit-in/360x360/a7/90/a790dff70defe5c61b66fd73716b6e30.jpg",
-    "edit": "editando producto"
+    "timestamp": "30/11/2022 14:33:09"
   },
   {
     "id": 2,
     "nombre": "El temor de un hombre Sabio",
-    "descripcion": "Segunda entrega de la saga Crónica del Asesino de Reyes",
+    "descripción": "Segunda entrega de la saga Crónica del Asesino de Reyes",
+    "código": 1111122222,
+    "thumbnail": "https://www.popularlibros.com/imagenes.webp_grandes/9788401/978840133963.webp",
     "precio": 8500,
     "stock": 12,
-    "thumbnail": "https://www.popularlibros.com/imagenes.webp_grandes/9788401/978840133963.webp"
+    "timestamp": "30/11/2022 14:33:31"
   },
   {
     "id": 3,
     "nombre": "Las puertas de piedra",
-    "descripcion": "Tercera entrega de la saga Crónica del Asesino de Reyes",
-    "precio": 10000,
+    "descripción": "Tercera entrega de la saga Crónica del Asesino de Reyes",
+    "código": 20000000,
+    "thumbnail": "http://www.cronicadelasesinodereyes.com/wp-content/uploads/2017/02/las-puertas-de-piedra.jpg",
+    "precio": 10500,
     "stock": 11,
-    "thumbnail": "http://www.cronicadelasesinodereyes.com/wp-content/uploads/2017/02/las-puertas-de-piedra.jpg"
-  },
-  {
-    "body": {
-      "id": 2,
-      "nombre": "El temor de un hombre Sabio",
-      "descripcion": "Segunda entrega de la saga Crónica del Asesino de Reyes",
-      "precio": 8500,
-      "stock": 12,
-      "thumbnail": "https://www.popularlibros.com/imagenes.webp_grandes/9788401/978840133963.webp"
-    },
-    "timestamp": "24/11/2022 21:48:01",
-    "id": 4
-  },
-  {
-    "body": {
-      "id": 3,
-      "nombre": "Las puertas de piedra",
-      "descripcion": "Tercera entrega de la saga Crónica del Asesino de Reyes",
-      "precio": 10000,
-      "stock": 11,
-      "thumbnail": "http://www.cronicadelasesinodereyes.com/wp-content/uploads/2017/02/las-puertas-de-piedra.jpg"
-    },
-    "timestamp": "25/11/2022 22:06:54",
-    "id": 5
+    "timestamp": "30/11/2022 14:33:43"
   }
 ]
