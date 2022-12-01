@@ -1,6 +1,8 @@
 # Primera-Entraga-Backend
 
 Postman
+Import Archivo: 
+Primera Entrega.postman_collection.json
 
 RUTAS
 
