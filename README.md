@@ -32,6 +32,6 @@ DELETE("/:id") - http://localhost:8080/api/carrito/:id - Borrar carro.
 
 GET("/:id/productos") - http://localhost:8080/api/carrito/:id/productos - Productos del carro.
 
-POST("/:id/productos") - http://localhost:8080/api/carrito/:id/productos - Añadir producto al carro.
+POST("/:id/productos") - http://localhost:8080/api/carrito/:id/productos/:id - Añadir producto al carro.
 
 DELETE("/:id/productos/:id_prod") http://localhost:8080/api/carrito/:id/productos/:id_prod - Borrar producto del carro.
